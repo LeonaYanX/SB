@@ -1,0 +1,37 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<Book>
+
+@foreach (var b in Model)
+{
+    <tr>
+        <td>@b.Galaries</td>
+        <td>@b.Title</td>
+        <br />
+        <td>@b.Author</td>
+        <br />
+        <td>@b.Price</td>
+        @switch (b.Swap)
+        {
+            case 1:
+                <h3>Swapable</h3>
+                break;
+            case 0:
+                <h3>Not Swapable</h3>
+                break;
+            default:
+                <h3>Not Specified</h3>
+                break;
+        
+        }
+        <td>
+            <textarea name="Info">@b.Info</textarea>
+        </td>
+        <input type="submit" value="More" /> @* Nado podstavit v @Html. chtoto *@
+    </tr>
+    
+}
+<h1>Books will be viewed</h1>
