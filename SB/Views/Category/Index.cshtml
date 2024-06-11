@@ -1,9 +1,11 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿
 @model IEnumerable<Book>
+
+@if (Model.Count()== 0)
+{
+    <h3>Nothing found</h3>
+
+}
 
 @foreach (var b in Model)
 {
@@ -30,8 +32,10 @@
         <td>
             <textarea name="Info">@b.Info</textarea>
         </td>
-        <input type="submit" value="More" /> @* Nado podstavit v @Html. chtoto *@
+        <input type="submit" value="More" /> @* Nado podstavit
+    @Html.ActionLink("More","Index","Category");<br/>
+    *@
     </tr>
     
 }
-<h1>Books will be viewed</h1>
+@Html.ActionLink("More", "Index", "BookCategoryMore");
