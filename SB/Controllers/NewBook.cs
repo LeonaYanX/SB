@@ -8,7 +8,7 @@ namespace SB.Controllers
     {
         public IActionResult Index()
         {
-            
+
             return View();
         }
 
@@ -24,15 +24,8 @@ namespace SB.Controllers
          Book book1 = new Book {Author = newBook.Author , Title = newBook.Title ,
              Info=newBook.Info , Price = newBook.Price };
 
-
-            // ternarnii pomenyat
-            if (newBook.Swap)
-            {
-                book1.Swap = 0;
-            }
-            else
-                book1.Swap = 1;
-
+         book1.Swap= newBook.Swap== true ? 1 : 0;
+            
             SwapBookDbContext db = new SwapBookDbContext();
 
             int[] keys = new int[db.Catalogs.Count()];
@@ -81,6 +74,7 @@ namespace SB.Controllers
 
             db.Books.Add(book1);
             db.SaveChanges();
+            newBook.Id = book1.Id;
             return RedirectToAction("MyBooks","NewBook");
        }
 

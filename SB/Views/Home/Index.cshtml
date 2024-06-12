@@ -7,7 +7,9 @@
    <table class="table">
         @foreach (var c in Model)
         {
-            @Html.ActionLink(c.Value.ToString(),"Index","Category");<br/>
+            @Html.ActionLink(c.Value.ToString(),"Index","Category" ,new {idCategory = c.Id});<br /> 
+            // tak je nado nastroit new idBook novii parametr v Action Link newbookmore i v controllere
+            // peredat v metod parametr s tem je imenem
             
         }
         

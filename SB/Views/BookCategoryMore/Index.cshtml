@@ -1,1 +1,8 @@
-﻿<h1>One book in category cliked</h1>
+﻿@using SB.ViewModels
+
+@model IEnumerable<BookVM>
+
+@using (Html.BeginForm("Index", "BookCategoryMore"))
+{
+    @Html.EditorForModel()
+}

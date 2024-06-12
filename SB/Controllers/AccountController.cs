@@ -48,7 +48,7 @@ namespace SB.Controllers
         public IActionResult Login(Login login)
         {
             SwapBookDbContext dbContext = new SwapBookDbContext();
-
+            
             var user = dbContext.Users.FirstOrDefault(u => u.Email == login.Email && u.Password==login.Password);
 
             if (user != null)
