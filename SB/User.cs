@@ -11,7 +11,7 @@ public partial class User
 
     public string Password { get; set; }
 
-    public byte[] Photo { get; set; }
+    public byte[] ?Photo { get; set; }
 
     public string Phone { get; set; }
 
